@@ -9,3 +9,10 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    labels:
+      - "npm"
+      - "dependencies"
+    reviewers:
+      - "fisenkodv"
+    assignees:
+      - "fisenkodv"
