@@ -20,12 +20,6 @@ jobs:
 
     - name: Extract version and set it to TAG env var
       run: echo "TAG=$(jq -r '.version' package.json)" >> $GITHUB_ENV
-
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@v5
-      with:
-        images: ${{ secrets.DOCKERHUB_REPO }}
    
     - name: Build and push Docker images
       uses: docker/build-push-action@v5
