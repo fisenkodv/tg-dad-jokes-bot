@@ -28,7 +28,7 @@
     "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
-    "@types/node": "^20.8.3",
+    "@types/node": "^20.8.4",
     "@types/pg": "^8.10.5",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.5",
