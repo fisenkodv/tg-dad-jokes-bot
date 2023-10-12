@@ -27,4 +27,12 @@ RUN npm ci --production
 
 COPY --from=builder /usr/src/app/dist ./dist
 
+ENV LOG_LEVEL=debug
+ENV BOT_TOKEN=
+ENV PGHOST=
+ENV PGDATABASE=
+ENV PGPORT=
+ENV PGUSER=
+ENV PGPASSWORD=
+
 CMD [ "npm", "run", "start:pm2" ]
