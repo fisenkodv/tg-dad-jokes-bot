@@ -22,7 +22,9 @@
   },
   "homepage": "https://github.com/fisenkodv/tg-dad-jokes#readme",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "pg": "^8.11.3",
+    "pm2": "^5.3.0",
     "telegraf": "^4.14.0",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1"
@@ -32,14 +34,12 @@
     "@types/pg": "^8.10.5",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.5",
-    "dotenv": "^16.3.1",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jsdoc": "^46.8.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "pm2": "^5.3.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   }
