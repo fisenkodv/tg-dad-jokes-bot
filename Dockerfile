@@ -35,4 +35,4 @@ ENV PGPORT=
 ENV PGUSER=
 ENV PGPASSWORD=
 
-CMD [ "npm", "run", "start:pm2" ]
+CMD [ "npm", "run", "start" ]
