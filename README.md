@@ -1,2 +1,3 @@
 # Telegram Bot Of Funniest Dad Jokes
-See details here https://en.wikipedia.org/wiki/Dad_joke
+
+Feel free to start using [Funniest Dad Jokes](https://t.me/TgDadJokesBot)
