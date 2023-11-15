@@ -25,15 +25,19 @@ bot.start(ctx => {
 });
 
 bot.on('message', async ctx => {
-  const msg = ctx.has(message('text')) ? ctx.message.text : '';
-  const { first_name, last_name } = ctx.message.from;
-  logger.info("The user (%s,%s) sent message '%s'", first_name, last_name, msg);
+  try {
+    const msg = ctx.has(message('text')) ? ctx.message.text : '';
+    const { first_name, last_name } = ctx.message.from;
+    logger.info("The user (%s,%s) sent message '%s'", first_name, last_name, msg);
 
-  const joke = await jokesService.getJoke();
+    const joke = await jokesService.getJoke();
 
-  if (joke) {
-    const keyboard = joke.answer ? Markup.inlineKeyboard([Markup.button.callback('Get the answer!', `${joke.id}`)]) : undefined;
-    ctx.replyWithHTML(joke.joke, keyboard);
+    if (joke) {
+      const keyboard = joke.answer ? Markup.inlineKeyboard([Markup.button.callback('Get the answer!', `${joke.id}`)]) : undefined;
+      ctx.replyWithHTML(joke.joke, keyboard);
+    }
+  } catch (error) {
+    logger.error("An error '%s' occurred providing a joke", error);
   }
 });
 
