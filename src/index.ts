@@ -12,7 +12,6 @@ if (!token) {
 }
 
 const bot = new Telegraf(token);
-// bot.use(Telegraf.log());
 bot.use(session());
 
 const jokesService = new JokesService();
