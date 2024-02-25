@@ -1,6 +1,6 @@
 {
   "name": "tg-dad-jokes-bot",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "🤖 Telegram Bot for dad jokes",
   "author": "Dmitry Fisenko",
   "license": "MIT",
@@ -22,25 +22,25 @@
   },
   "homepage": "https://github.com/fisenkodv/tg-dad-jokes#readme",
   "dependencies": {
-    "dotenv": "^16.4.0",
+    "dotenv": "^16.4.5",
     "pg": "^8.11.3",
     "pm2": "^5.3.1",
-    "telegraf": "^4.15.0",
+    "telegraf": "^4.16.0",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "@types/pg": "^8.11.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@types/node": "^20.11.20",
+    "@types/pg": "^8.11.1",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsdoc": "^48.2.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.1.1",
-    "prettier": "^3.2.1",
-    "typescript": "^5.3.2"
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
   }
 }

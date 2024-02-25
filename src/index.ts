@@ -23,11 +23,13 @@ bot.start(ctx => {
   ctx.reply(greeting, keyboard);
 });
 
-bot.on('message', async ctx => {
+bot.on(message('text'), async ctx => {
   try {
-    const msg = ctx.has(message('text')) ? ctx.message.text : '';
-    const { first_name, last_name } = ctx.message.from;
-    logger.info("The user (%s,%s) sent message '%s'", first_name, last_name, msg);
+    const {
+      from: { first_name, last_name },
+      text
+    } = ctx.message;
+    logger.info("The user (%s,%s) sent message '%s'", first_name, last_name, text);
 
     const joke = await jokesService.getJoke();
 
@@ -40,20 +42,18 @@ bot.on('message', async ctx => {
   }
 });
 
-bot.on('callback_query', async ctx => {
+bot.on(callbackQuery('data'), async ctx => {
   try {
-    if (ctx.has(callbackQuery('data'))) {
-      const msg = ctx.callbackQuery.data;
-      const { first_name, last_name } = ctx.callbackQuery.from;
-      logger.info('The user (%s,%s) requested an answer to joke with ID %d', first_name, last_name, msg);
+    const msg = ctx.callbackQuery.data;
+    const { first_name, last_name } = ctx.callbackQuery.from;
+    logger.info('The user (%s,%s) requested an answer to joke with ID %d', first_name, last_name, msg);
 
-      const jokeId = Number.parseInt(ctx.callbackQuery.data);
-      const joke = await jokesService.getJokeById(jokeId);
+    const jokeId = Number.parseInt(ctx.callbackQuery.data);
+    const joke = await jokesService.getJokeById(jokeId);
 
-      if (joke) {
-        const formattedJoke = `${joke.joke}\n\u2014<i>${joke.answer}</i>`;
-        ctx.editMessageText(formattedJoke, { parse_mode: 'HTML' });
-      }
+    if (joke) {
+      const formattedJoke = `${joke.joke}\n\u2014<i>${joke.answer}</i>`;
+      ctx.editMessageText(formattedJoke, { parse_mode: 'HTML' });
     }
   } catch (error) {
     logger.error("An error '%s' occurred providing an answer", error);
