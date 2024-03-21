@@ -2,28 +2,29 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Log in to Docker Hub
-      uses: docker/login-action@v3
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Extract version and set it to TAG env var
-      run: echo "TAG=$(jq -r '.version' package.json)" >> $GITHUB_ENV
-   
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v5
-      with:
-        push: true
-        tags: |
-          ${{ secrets.DOCKERHUB_REPO }}:latest
-          ${{ secrets.DOCKERHUB_REPO }}:${{ env.TAG }}
-        labels: ${{ steps.meta.outputs.labels }}    
+      - name: Extract version and set it to TAG env var
+        run: echo "TAG=$(jq -r '.version' package.json)" >> $GITHUB_ENV
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ${{ secrets.DOCKERHUB_REPO }}:latest
+            ${{ secrets.DOCKERHUB_REPO }}:${{ env.TAG }}
+          labels: ${{ steps.meta.outputs.labels }}
