@@ -34,8 +34,8 @@ bot.on(message('text'), async ctx => {
     const joke = await jokesService.getJoke();
 
     if (joke) {
-      const keyboard = joke.answer ? Markup.inlineKeyboard([Markup.button.callback('Get the answer!', `${joke.id}`)]) : undefined;
-      ctx.replyWithHTML(joke.joke, keyboard);
+      const keyboard = joke.punchline ? Markup.inlineKeyboard([Markup.button.callback('Show a punchline!', `${joke.id}`)]) : undefined;
+      ctx.replyWithHTML(joke.setup, keyboard);
     }
   } catch (error) {
     logger.error("An error '%s' occurred providing a joke", error);
@@ -46,17 +46,17 @@ bot.on(callbackQuery('data'), async ctx => {
   try {
     const msg = ctx.callbackQuery.data;
     const { first_name, last_name } = ctx.callbackQuery.from;
-    logger.info('The user (%s,%s) requested an answer to joke with ID %d', first_name, last_name, msg);
+    logger.info('The user (%s,%s) requested a punchline to joke with ID %d', first_name, last_name, msg);
 
     const jokeId = Number.parseInt(ctx.callbackQuery.data);
     const joke = await jokesService.getJokeById(jokeId);
 
     if (joke) {
-      const formattedJoke = `${joke.joke}\n\u2014<i>${joke.answer}</i>`;
+      const formattedJoke = `${joke.setup}\n\u2014<i>${joke.punchline}</i>`;
       ctx.editMessageText(formattedJoke, { parse_mode: 'HTML' });
     }
   } catch (error) {
-    logger.error("An error '%s' occurred providing an answer", error);
+    logger.error("An error '%s' occurred providing a punchline", error);
   }
 });
 
