@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/fisenkodv/tg-dad-jokes#readme",
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.5.0",
     "pg": "^8.15.1",
     "pm2": "^6.0.5",
     "telegraf": "^4.16.0",
