@@ -6,11 +6,12 @@
   "license": "MIT",
   "main": "./dist/index.js",
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "prebuild": "npm run clean",
     "build": "tsc --build tsconfig.json",
-    "start": "node ./dist/index.js",
+    "clean": "rm -rf ./dist",
+    "lint": "eslint --ext .ts ./src",
+    "prebuild": "npm run clean",
     "start:pm2": "pm2 start --name 'Dad Jokes Bot' ./dist/index.js",
+    "start": "node ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,17 +31,15 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.28.0",
     "@types/node": "^22.15.30",
     "@types/pg": "^8.15.4",
-    "@typescript-eslint/eslint-plugin": "7.17.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.57.1",
+    "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-jsdoc": "^50.7.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-perfectionist": "^4.14.0",
+    "eslint-plugin-unicorn": "^59.0.1",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.1"
   }
 }

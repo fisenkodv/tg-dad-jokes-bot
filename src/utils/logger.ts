@@ -9,15 +9,15 @@ export const logger = createLogger({
     format.prettyPrint(),
     format.printf(info => `${info.timestamp} [${info.level}]: ${info.message}`)
   ),
+  level: process.env.LOG_LEVEL || 'debug',
   transports: [
     new transports.Console(),
     new transports.DailyRotateFile({
-      filename: 'tg-dad-jokes-bot-%DATE%.log',
-      dirname: '.',
       datePattern: 'YYYY-MM-DD',
-      zippedArchive: false,
-      maxFiles: '14d'
+      dirname: '.',
+      filename: 'tg-dad-jokes-bot-%DATE%.log',
+      maxFiles: '14d',
+      zippedArchive: false
     })
-  ],
-  level: process.env.LOG_LEVEL || 'debug'
+  ]
 });
