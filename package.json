@@ -34,7 +34,7 @@
     "@eslint/js": "^9.29.0",
     "@types/node": "^22.15.30",
     "@types/pg": "^8.15.4",
-    "eslint": "^9.28.0",
+    "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-perfectionist": "^4.14.0",
     "eslint-plugin-unicorn": "^59.0.1",
