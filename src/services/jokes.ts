@@ -14,7 +14,7 @@ export class JokesService {
     return undefined;
   }
 
-  async getJokeById(id: number): Promise<Optional<Joke>> {
+  async getJokeById(id: string): Promise<Optional<Joke>> {
     try {
       const result = await query('SELECT id, setup, punchline FROM jokes WHERE id = $1', id);
       const joke = result.rows.at(0) as Joke;
