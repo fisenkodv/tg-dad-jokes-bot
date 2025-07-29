@@ -51,7 +51,7 @@ bot.on(callbackQuery('data'), async context => {
     const { first_name, last_name } = context.callbackQuery.from;
     logger.info('The user (%s,%s) requested a punchline to joke with ID %d', first_name, last_name, message_);
 
-    const jokeId = Number.parseInt(context.callbackQuery.data);
+    const jokeId = context.callbackQuery.data;
     const joke = await jokesService.getJokeById(jokeId);
 
     if (joke) {
