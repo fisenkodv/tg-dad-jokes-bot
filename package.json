@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
-    "@types/node": "^24.2.0",
+    "@types/node": "^24.3.0",
     "@types/pg": "^8.15.4",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.5",
