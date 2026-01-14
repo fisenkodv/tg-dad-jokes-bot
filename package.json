@@ -24,7 +24,7 @@
   "homepage": "https://github.com/fisenkodv/tg-dad-jokes#readme",
   "dependencies": {
     "dotenv": "^17.2.0",
-    "pg": "^8.16.0",
+    "pg": "^8.17.0",
     "pm2": "^6.0.8",
     "telegraf": "^4.16.3",
     "winston": "^3.19.0",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@types/node": "^25.0.3",
-    "@types/pg": "^8.15.4",
+    "@types/pg": "^8.16.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-perfectionist": "^5.3.1",
